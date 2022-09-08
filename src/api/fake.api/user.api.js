@@ -16,6 +16,7 @@ const qualities = {
 
 }
 
+
 const users = [
     {
         _id: "67rdca3eeb7f6fgeed471815",
@@ -126,6 +127,8 @@ const users = [
         bookmark: false
     },
 ]
+
+
 export function fetchAll() {
     return users
 }

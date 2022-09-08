@@ -6,7 +6,7 @@ const Users = ()=> {
     const handleDelete = (id) => {
         setUsers(prevState=>prevState.filter(user=>user!==id))        
     }
-
+    
     const renderPhrase = () => {        
         if (users.length > 4 && users.length <= 12)
         {return (
@@ -22,20 +22,7 @@ const Users = ()=> {
         }
     }
 
-    
-
     const renderUser = () => { 
-        
-        const renderBadge = () => {
-            return users.qualities.map((quality) => {
-                let colorBadge = 'badge bg-' + quality.color
-                    return (
-                        <span className={colorBadge}>
-                            {quality.name}
-                        </span>
-                    )
-            })
-        }
         
         return (
         users.map(user=> 
@@ -44,9 +31,11 @@ const Users = ()=> {
             <>
                 <tr>
                     <td>{user.name}</td>
-                    <td>{//renderBadge()
-                   //{...user.qualities}.name
-                    }
+                    <td>{
+                    user.qualities.map((item) => {
+                        return <span className={'badge bg-' + item.color}>{item.name}</span>;
+                      })}
+                    
                     </td>
                     <td>{user.profession.name}</td>
                     <td>{user.completedMeetings}</td>
